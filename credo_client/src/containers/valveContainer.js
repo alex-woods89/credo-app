@@ -23,7 +23,9 @@ class ValveContainer extends Component{
        return(
            <Fragment>
            <h4>Valves</h4>
+           
            <ValveList valves={this.state.valves}/>
+           
            </Fragment>
        )
    }
