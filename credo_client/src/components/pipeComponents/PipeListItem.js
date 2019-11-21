@@ -1,13 +1,19 @@
 import React from 'react'
 
-const PipeListItem = ({ pipes }) => {
-  const pipeNodes = pipes.map((pipe, index) => {
-    return (
-        <li key={index}>{pipe.name}  {pipe.lastInspectionDate}  {pipe.location}  {pipe.uniquePipeId}</li>
-    )
-})
+const PipeListItem = (props) => {
+  
+
 return (
-    {pipeNodes}
+    <>
+    <tr>
+        <td>{props.pipe.name}</td>
+        <td>{props.pipe.lastInspectionDate}</td>
+        <td>{props.pipe.location}</td>
+        <td>{props.pipe.uniquePipeId}</td>
+        <td><button>Edit Pipe</button></td>
+        <td><button>Delete Pipe</button></td>
+    </tr>
+    </>
 )
       
 }
