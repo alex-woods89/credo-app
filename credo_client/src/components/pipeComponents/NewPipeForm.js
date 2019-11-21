@@ -14,6 +14,7 @@ class NewPipeForm extends Component{
         this.handleLastInspectionDateChange = this.handleLastInspectionDateChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.handleUniquePipeIdChange = this.handleUniquePipeIdChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
   
     handlePipeNameChange(event){
@@ -46,8 +47,8 @@ class NewPipeForm extends Component{
         location: this.state.location,
         uniquePipeId: this.state.uniquePipeId
       })
-    });
-    
+    })
+        .then(() => {
         const name = this.state.name.trim();
         const lastInspectionDate = this.state.lastInspectionDate.trim();
         const location = this.state.location.trim();
@@ -57,7 +58,7 @@ class NewPipeForm extends Component{
         }
         this.props.onPipeSubmit({name:name, lastInspectionDate:lastInspectionDate, location:location, uniquePipeId:uniquePipeId})
         this.setState({name: "", lastInspectionDate: "", location: "", uniquePipeId: ""})
-        
+    })
     }
 
     render(){
