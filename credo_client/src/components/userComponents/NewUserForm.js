@@ -5,96 +5,96 @@ class NewUserForm extends Component{
         super(props);
         this.state = {
             firstName: "",
-
-            lastInspectionDate: "",
-            location: "",
-            uniquePipeId: null
+            lastName: "",
+            role: "",
+            employeeNumber: null
 
         }
-        this.handlePipeNameChange = this.handlePipeNameChange.bind(this);
-        this.handleLastInspectionDateChange = this.handleLastInspectionDateChange.bind(this);
-        this.handleLocationChange = this.handleLocationChange.bind(this);
-        this.handleUniquePipeIdChange = this.handleUniquePipeIdChange.bind(this);
+        this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
+        this.handleLastNameChange = this.handleLastNameChange.bind(this);
+        this.handleRoleChange = this.handleRoleChange.bind(this);
+        this.handleEmployeeNumberChange = this.handleEmployeeNumberChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
   
-    handlePipeNameChange(event){
-        this.setState({name: event.target.value})
+    handleFirstNameChange(event){
+        this.setState({firstName: event.target.value})
     }
 
-    handleLastInspectionDateChange(event){
-        this.setState({lastInspectionDate: event.target.value})
+    handleLastNameChange(event){
+        this.setState({lastName: event.target.value})
     }
 
-    handleLocationChange(event){
-        this.setState({location: event.target.value})
+    handleRoleChange(event){
+        this.setState({role: event.target.value})
     }
 
-    handleUniquePipeIdChange(event){
-        this.setState({uniquePipeId: event.target.value})
+    handleEmployeeNumberChange(event){
+        this.setState({employeeNumber: event.target.value})
     }
 
     handleSubmit(event){
         event.preventDefault();
-        fetch('http://localhost:8080/pipes', {
+        fetch('http://localhost:8080/users', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: this.state.name,
-        lastInspectionDate: this.state.lastInspectionDate,
-        location: this.state.location,
-        uniquePipeId: this.state.uniquePipeId
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        role: this.state.role,
+        employeeNumber: this.state.employeeNumber
       })
-    });
-    
-        const name = this.state.name.trim();
-        const lastInspectionDate = this.state.lastInspectionDate.trim();
-        const location = this.state.location.trim();
-        const uniquePipeId = this.state.uniquePipeId;
-        if (!name || !lastInspectionDate || !location || !uniquePipeId) {
+    })
+      .then(() =>  {
+        const firstName = this.state.firstName.trim();
+        const lastName = this.state.lastName.trim();
+        const role = this.state.role.trim();
+        const employeeNumber = this.state.employeeNumber;
+        if (!firstName || !lastName || !role || !employeeNumber) {
           return
         }
-        this.props.onPipeSubmit({name:name, lastInspectionDate:lastInspectionDate, location:location, uniquePipeId:uniquePipeId})
-        this.setState({name: "", lastInspectionDate: "", location: "", uniquePipeId: ""})
-        
+        this.props.onUserSubmit({firstName:firstName, lastName:lastName, role:role, employeeNumber:employeeNumber})
+        this.setState({firstName: "", lastName: "", role: "", employeeNumber: ""})
+    }) 
     }
 
     render(){
         return(
             <div>
-                <h3>New Pipe Form</h3>
+                <h3>New User Form</h3>
                 <form onSubmit={this.handleSubmit}>
                     <input 
                     type="text"
-                    placeholder="insert pipe name"
-                    value={this.state.name}
-                    onChange={this.handlePipeNameChange}
-                    />
-
-                    <input
-                    type="date"
-                    placeholder="Choose a date"
-                    value={this.state.lastInspectionDate}
-                    onChange={this.handleLastInspectionDateChange}
+                    placeholder="insert first name"
+                    value={this.state.firstName}
+                    onChange={this.handleFirstNameChange}
                     />
 
                     <input 
                     type="text"
-                    placeholder="Enter a Location"
-                    value={this.state.location}
-                    onChange={this.handleLocationChange}
+                    placeholder="insert last name"
+                    value={this.state.lastName}
+                    onChange={this.handleLastNameChange}
+                    />
+
+                    <input 
+                    type="text"
+                    placeholder="Enter a Role"
+                    value={this.state.role}
+                    onChange={this.handleRoleChange}
                     />
 
                     <input
                     type="number"
-                    placeholder="Enter pipe ID"
-                    value={this.state.uniquePipeId}
-                    onChange={this.handleUniquePipeIdChange}
+                    placeholder="Enter Employee Number"
+                    value={this.state.employeeNumber}
+                    onChange={this.handleEmployeeNumberChange}
                     />
 
-                    <button type="submit">Submit new pipe</button>
+                    <button type="submit">Submit New User</button>
 
 
                 </form>
@@ -104,4 +104,4 @@ class NewUserForm extends Component{
 
 }
 
-export default NewPipeForm
+export default NewUserForm
