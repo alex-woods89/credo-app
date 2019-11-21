@@ -6,3 +6,12 @@ import UserContainer from './containers/userContainer';
 import ValveContainer from './containers/valveContainer';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
+class Main extends Component{
+
+
+
+
+}
+
+export default Main 
+
