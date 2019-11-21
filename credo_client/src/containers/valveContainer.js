@@ -8,7 +8,10 @@ class ValveContainer extends Component{
             valves: [],
             selectedValve: null
         }
+
     }
+
+   
 
     componentDidMount(){
         fetch('http://localhost:8080/valves')

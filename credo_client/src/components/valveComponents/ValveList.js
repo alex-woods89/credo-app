@@ -1,9 +1,9 @@
 import React from 'react'
 import ValveListItem from './ValveListItem'
 
-const ValveList = ({ valves }) => {
+const ValveList = (props) => {
     
-    const valveNodes = valves.map((valve, index) => {
+    const valveNodes = props.valves.map((valve, index) => {
         return <ValveListItem key={index} valve={valve}/>
     })
 
