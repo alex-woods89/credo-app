@@ -68,47 +68,53 @@ class EditValveForm extends Component {
 
        render(){
            return(
-               <Fragment>
+               
             
-                
-            <h3>Edit Valve Form</h3>
             
-            <form onSubmit={this.handleSubmit}>
+            <Fragment>
+            <form className="editForm" align="center" onSubmit={this.handleSubmit}>
+                <tr>
+                    <td>
                 <input 
                 type="text"
                 placeholder="insert valve name"
                 value={this.state.name}
                 onChange={this.handleNameChange}
                 />
-
+                  </td>
+                  <td>
                 <input
                 type="date"
                 placeholder="Choose a date"
                 value={this.state.lastInspectionDate}
                 onChange={this.handleLastInspectionDateChange}
                 />
-
+                </td>
+                <td>
                 <input 
                 type="text"
                 placeholder="Enter a Location"
                 value={this.state.location}
                 onChange={this.handleLocationChange}
                 />
-
+                </td>
+                <td>
                 <input
                 type="number"
                 placeholder="Enter pipe ID"
                 value={this.state.uniqueValveId}
                 onChange={this.handleUniqueValveIdChange}
                 />
-
+                </td>
+                <td>
                 <button type="submit">Edit Valve</button>
-
-
+                </td>
+                </tr>
+                
             </form>
        
-        
-        </Fragment>
+            </Fragment>
+       
 
            )
        }

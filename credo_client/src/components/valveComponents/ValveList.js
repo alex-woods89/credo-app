@@ -4,8 +4,16 @@ import ValveListItem from './ValveListItem'
 const ValveList = (props) => {
     
     const valveNodes = props.valves.map((valve, index) => {
-        return <ValveListItem key={index} valve={valve}/>
+        return (
+         <>
+         <ValveListItem key={index} valve={valve}/>
+         
+         </>
+        )
+        
+
     })
+    
 
     return(
         <table align="center">
@@ -15,12 +23,15 @@ const ValveList = (props) => {
                  <th>Last Inspection Date </th>
                  <th>Location</th>
                  <th>Valve Id</th>
-                 <th>Edit User</th>
-                 <th>Delete User</th>
+                 <th>Delete Valve</th>
              </tr>
+             <br/>
              {valveNodes}
+             
         </tbody>
+       
     </table>
+      
     )
 }
 

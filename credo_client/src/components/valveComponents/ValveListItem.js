@@ -10,20 +10,25 @@ const ValveListItem = (props) => {
     }
 
 return (
-    <div>
+    
     <>
-    <tr>
+    <tr align="center">
         <td>{props.valve.name}</td>
         <td>{props.valve.lastInspectionDate}</td>
         <td>{props.valve.location}</td>
         <td>{props.valve.uniqueValveId}</td>
-        <td><button>Edit Valve</button></td>
         <td><button onClick={handleDelete}>Delete Valve</button></td>
+        <br/>
+        
+
     </tr>
+
     
-    </>
+
+    <div className="editForm"align="center">
     <EditValveForm valve={props.valve}/>
     </div>
+    </>
 )
       
 }

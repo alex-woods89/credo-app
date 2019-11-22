@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => (
-  <ul id="nav-bar">
+  <ul className="nav-bar">
     <li>
       <Link to="/valves">Valves</Link>
     </li>
