@@ -6,8 +6,7 @@ class UserContainer extends Component{
      constructor(props){
          super(props)
          this.state = {
-             users: [],
-             selectedUser:null
+             users: []
          }
          this.handleUserSubmit = this.handleUserSubmit.bind(this)
      }

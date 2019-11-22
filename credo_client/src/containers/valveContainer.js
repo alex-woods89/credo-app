@@ -7,8 +7,7 @@ class ValveContainer extends Component{
     constructor(props){
         super(props)
         this.state={
-            valves: [],
-            selectedValve: null
+            valves: []
         }
         this.handleValveSubmit = this.handleValveSubmit.bind(this)
     }

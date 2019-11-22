@@ -6,8 +6,7 @@ class PipeContainer extends Component {
    constructor(props){
        super(props)
        this.state= {
-           pipes: [],
-           selectedPipe: null 
+           pipes: []
        }
        this.handlePipeSubmit = this.handlePipeSubmit.bind(this)
        this.handlePipeSelected = this.handlePipeSelected.bind(this)
