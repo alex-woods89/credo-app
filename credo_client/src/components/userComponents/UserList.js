@@ -1,9 +1,9 @@
 import React from 'react'
 import UserListItem from './UserListItem'
 
-const UserList = ({users}) => {
+const UserList = (props) => {
 
-    const userNodes = users.map((user, index) => {
+    const userNodes = props.users.map((user, index) => {
         return <UserListItem key={index} user={user}/>
     })
 

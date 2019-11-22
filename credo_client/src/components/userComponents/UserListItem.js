@@ -1,4 +1,5 @@
 import React from 'react'
+import EditUserForm from './EditUserForm'
 
 const UserListItem = (props) => {
 
@@ -16,9 +17,11 @@ const UserListItem = (props) => {
             <td>{props.user.lastName}</td>
             <td>{props.user.role}</td>
             <td>{props.user.employeeNumber}</td>
-            <td><button>Edit User</button></td>
             <td><button onClick={handleDelete}>Delete User</button></td>
         </tr>
+        <div className="editForm"align="center">
+    <EditUserForm user={props.user}/>
+    </div>
         </>
     )
 }

@@ -28,7 +28,6 @@ const PipeList = ({pipes}) => {
                  {pipeNodes}
             </tbody>
         </table>
-        {/* <EditPipeForm pipe={pipe} /> */}
         </div>
         
     )

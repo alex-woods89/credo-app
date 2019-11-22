@@ -21,11 +21,14 @@ return (
         <td>{props.pipe.lastInspectionDate}</td>
         <td>{props.pipe.location}</td>
         <td>{props.pipe.uniquePipeId}</td>
-        <td><button >Edit Pipe</button></td>
         <td><button onClick={handleDelete}>Delete Pipe</button></td>
         
     </tr>
-    
+      
+    <div className="editForm"align="center">
+    <EditPipeForm pipe={props.pipe}/>
+    </div>
+
     </>
 )
       

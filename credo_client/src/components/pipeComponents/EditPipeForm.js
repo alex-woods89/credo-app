@@ -3,13 +3,13 @@ import React, {Component, Fragment} from 'react'
 class EditPipeForm extends Component {
        constructor(props){
            super(props);
-           const { name, lastInspectionDate, location, uniquePipeId, showForm } = this.props.pipe
+           const { name, lastInspectionDate, location, uniquePipeId, id } = this.props.pipe
            this.state = {
                name: name,
                lastInspectionDate: lastInspectionDate,
                location: location,
                uniquePipeId: uniquePipeId,
-               showForm: false
+               id: id
            }
            this.handleNameChange = this.handleNameChange.bind(this)
            this.handleLastInspectionDateChange = this. handleLastInspectionDateChange.bind(this)
@@ -39,7 +39,7 @@ class EditPipeForm extends Component {
 
     handleSubmit(event){
         event.preventDefault();
-        fetch(`http://localhost:8080/pipes/${this.props.pipe.id}`, {
+        fetch(`http://localhost:8080/pipes/${this.state.id}`, {
       method: 'PATCH',
       headers: {
         Accept: 'application/json',
@@ -60,7 +60,7 @@ class EditPipeForm extends Component {
         if (!name || !lastInspectionDate || !location || !uniquePipeId) {
           return
         }
-        this.props.onPipeSubmit({name:name, lastInspectionDate:lastInspectionDate, location:location, uniquePipeId:uniquePipeId})
+        // this.props.onPipeSubmit({name:name, lastInspectionDate:lastInspectionDate, location:location, uniquePipeId:uniquePipeId})
         this.setState({name: "", lastInspectionDate: "", location: "", uniquePipeId: ""})
     })
     }
@@ -70,8 +70,8 @@ class EditPipeForm extends Component {
                <Fragment>
             
                 
-            <h3>Edit Pipe Form</h3>
-            {this.state.showForm &&
+           
+           
             <form onSubmit={this.handleSubmit}>
                 <input 
                 type="text"
@@ -105,7 +105,7 @@ class EditPipeForm extends Component {
 
 
             </form>
-       }
+       
         
         </Fragment>
 

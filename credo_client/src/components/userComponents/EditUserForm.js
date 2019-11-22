@@ -3,13 +3,13 @@ import React, {Component, Fragment} from 'react'
 class EditUserForm extends Component {
        constructor(props){
            super(props);
-           const { firstName, lastName, role, employeeNumber } = this.props.user
+           const { firstName, lastName, role, employeeNumber, id } = this.props.user
            this.state = {
                firstName:firstName,
                lastName: lastName,
                role: role,
                employeeNumber: employeeNumber,
-               showForm: false
+               id: id
            }
            this.handleFirstNameChange = this.handleFirstNameChange.bind(this)
            this.handleLastNameChange = this. handleLastNameChange.bind(this)
@@ -38,7 +38,7 @@ class EditUserForm extends Component {
 
     handleSubmit(event){
         event.preventDefault();
-        fetch(`http://localhost:8080/users/${this.props.user.id}`, {
+        fetch(`http://localhost:8080/users/${this.state.id}`, {
       method: 'PATCH',
       headers: {
         Accept: 'application/json',
@@ -66,12 +66,8 @@ class EditUserForm extends Component {
 
        render(){
            return(
-               <Fragment>
-            
-                
-            <h3>Edit User Form</h3>
-            {this.state.showForm &&
-            <form onSubmit={this.handleSubmit}>
+            <Fragment>
+            <form className="editForm" align="center" onSubmit={this.handleSubmit}>
                 <input 
                     type="text"
                     placeholder="insert first name"
@@ -100,18 +96,18 @@ class EditUserForm extends Component {
                     onChange={this.handleEmployeeNumberChange}
                     />
 
-                    <button type="submit">Submit New User</button>
+                    <button type="submit">Edit User</button>
 
 
             </form>
-       }
         
         </Fragment>
 
            )
        }
-
-
 }
+
+
+
 
 export default EditUserForm

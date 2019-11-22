@@ -30,14 +30,13 @@
 
 .nav-bar{
   list-style-type: none;
-  justify-content: flex-start;
+  
 }
 
 .nav-bar li{
   list-style-type: none;
   float: left;
   border-right: 1px solid white;
-  text-align: center;
   width: 33%;
   margin: 0 auto;
 }
