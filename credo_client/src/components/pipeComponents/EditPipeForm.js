@@ -9,7 +9,7 @@ class EditPipeForm extends Component {
                lastInspectionDate: lastInspectionDate,
                location: location,
                uniquePipeId: uniquePipeId,
-               showForm: true
+               showForm: false
            }
            this.handleNameChange = this.handleNameChange.bind(this)
            this.handleLastInspectionDateChange = this. handleLastInspectionDateChange.bind(this)
@@ -60,7 +60,7 @@ class EditPipeForm extends Component {
         if (!name || !lastInspectionDate || !location || !uniquePipeId) {
           return
         }
-        // this.props.onPipeSubmit({name:name, lastInspectionDate:lastInspectionDate, location:location, uniquePipeId:uniquePipeId})
+        this.props.onPipeSubmit({name:name, lastInspectionDate:lastInspectionDate, location:location, uniquePipeId:uniquePipeId})
         this.setState({name: "", lastInspectionDate: "", location: "", uniquePipeId: ""})
     })
     }

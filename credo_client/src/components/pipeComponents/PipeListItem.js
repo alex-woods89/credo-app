@@ -1,4 +1,5 @@
 import React from 'react'
+import EditPipeForm from './EditPipeForm'
 
 const PipeListItem = (props) => {
      
@@ -11,9 +12,6 @@ const PipeListItem = (props) => {
             })
         }
 
-        function handleShowFormChange(event){
-            this.setState({ showForm:true })
-        }
   
 
 return (
@@ -23,9 +21,11 @@ return (
         <td>{props.pipe.lastInspectionDate}</td>
         <td>{props.pipe.location}</td>
         <td>{props.pipe.uniquePipeId}</td>
-        <td><button onClick={handleShowFormChange}>Edit Pipe</button></td>
+        <td><button >Edit Pipe</button></td>
         <td><button onClick={handleDelete}>Delete Pipe</button></td>
+        
     </tr>
+    
     </>
 )
       

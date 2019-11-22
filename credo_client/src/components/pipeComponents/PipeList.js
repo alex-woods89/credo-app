@@ -4,6 +4,7 @@ import EditPipeForm from './EditPipeForm'
 
 const PipeList = ({pipes}) => {
 
+
     const pipe = pipes.map((pipe, index) => {
         return pipe 
     })
@@ -27,7 +28,7 @@ const PipeList = ({pipes}) => {
                  {pipeNodes}
             </tbody>
         </table>
-        <EditPipeForm pipe={pipe} />
+        {/* <EditPipeForm pipe={pipe} /> */}
         </div>
         
     )
