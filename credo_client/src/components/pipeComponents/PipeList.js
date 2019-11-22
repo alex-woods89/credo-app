@@ -1,15 +1,10 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PipeListItem from './PipeListItem'
-import EditPipeForm from './EditPipeForm'
-
-const PipeList = ({pipes}) => {
 
 
-    const pipe = pipes.map((pipe, index) => {
-        return pipe 
-    })
+const PipeList = (props) => {
 
-    const pipeNodes = pipes.map((pipe, index) => {
+    const pipeNodes = props.pipes.map((pipe, index) => {
         return <PipeListItem key ={index} pipe={pipe}/>
     })
 

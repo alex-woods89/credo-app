@@ -7,7 +7,7 @@ class NewUserForm extends Component{
             firstName: "",
             lastName: "",
             role: "",
-            employeeNumber: null
+            employeeNumber: ""
 
         }
         this.handleFirstNameChange = this.handleFirstNameChange.bind(this);

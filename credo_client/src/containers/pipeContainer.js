@@ -9,25 +9,16 @@ class PipeContainer extends Component {
            pipes: []
        }
        this.handlePipeSubmit = this.handlePipeSubmit.bind(this)
-       this.handlePipeSelected = this.handlePipeSelected.bind(this)
    }
 
    componentDidMount(){
-       fetch('http://localhost:8080/pipes')
-       .then(res => res.json())
-       .then(data => this.setState({ pipes: data._embedded.pipes }))
+       return this.handlePipeSubmit()
    }
 
    handlePipeSubmit() {
     fetch('http://localhost:8080/pipes')
       .then(res => res.json())
       .then(data => this.setState({ pipes: data._embedded.pipes }))
-  }
-  handlePipeSelected(index) {
-    const pipe = this.state.pipes[index]
-    fetch(`http://localhost:8080/pipes/${pipe.id}`)
-      .then(res => res.json())
-      .then(data => this.setState({ selectedPipe: data }))
   }
 
 

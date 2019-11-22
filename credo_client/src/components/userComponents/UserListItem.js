@@ -19,9 +19,11 @@ const UserListItem = (props) => {
             <td>{props.user.employeeNumber}</td>
             <td><button onClick={handleDelete}>Delete User</button></td>
         </tr>
-        <div className="editForm"align="center">
-    <EditUserForm user={props.user}/>
-    </div>
+
+         <div>
+          <EditUserForm user={props.user}/>
+         </div>
+         
         </>
     )
 }

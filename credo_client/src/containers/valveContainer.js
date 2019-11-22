@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import ValveList from '../components/valveComponents/ValveList'
 import NewValveForm from '../components/valveComponents/NewValveForm'
-import EditValveForm from '../components/valveComponents/EditValveForm'
+
 
 class ValveContainer extends Component{
     constructor(props){
@@ -14,9 +14,7 @@ class ValveContainer extends Component{
 
    
     componentDidMount(){
-        fetch('http://localhost:8080/valves')
-        .then(res => res.json())
-        .then(data => this.setState({ valves: data._embedded.valves }))
+        return this.handleValveSubmit()       
     }
 
     handleValveSubmit(){
@@ -29,10 +27,8 @@ class ValveContainer extends Component{
        return(
            <Fragment>
            <h4>Valves</h4>
-           
            <ValveList valves={this.state.valves}/>
            <NewValveForm onValveSubmit={this.handleValveSubmit}/>
-           
            </Fragment>
        )
    }
