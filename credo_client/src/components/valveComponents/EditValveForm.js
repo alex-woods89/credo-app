@@ -3,13 +3,14 @@ import React, {Component, Fragment} from 'react'
 class EditValveForm extends Component {
        constructor(props){
            super(props);
-           const { name, lastInspectionDate, location, uniqueValveId, showForm } = this.props.pipe
+           const { name, lastInspectionDate, location, uniqueValveId, id } = this.props.valve
            this.state = {
                name: name,
                lastInspectionDate: lastInspectionDate,
                location: location,
                uniqueValveId: uniqueValveId,
-               showForm: false
+               id: id
+               
            }
            this.handleNameChange = this.handleNameChange.bind(this)
            this.handleLastInspectionDateChange = this. handleLastInspectionDateChange.bind(this)
@@ -39,7 +40,7 @@ class EditValveForm extends Component {
 
     handleSubmit(event){
         event.preventDefault();
-        fetch(`http://localhost:8080/valves/${this.props.valve.id}`, {
+        fetch(`http://localhost:8080/valves/${this.state.id}`, {
       method: 'PATCH',
       headers: {
         Accept: 'application/json',
@@ -71,7 +72,7 @@ class EditValveForm extends Component {
             
                 
             <h3>Edit Valve Form</h3>
-            {this.state.showForm &&
+            
             <form onSubmit={this.handleSubmit}>
                 <input 
                 type="text"
@@ -105,7 +106,7 @@ class EditValveForm extends Component {
 
 
             </form>
-       }
+       
         
         </Fragment>
 

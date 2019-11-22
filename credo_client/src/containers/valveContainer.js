@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import ValveList from '../components/valveComponents/ValveList'
 import NewValveForm from '../components/valveComponents/NewValveForm'
+import EditValveForm from '../components/valveComponents/EditValveForm'
 
 class ValveContainer extends Component{
     constructor(props){
@@ -32,6 +33,7 @@ class ValveContainer extends Component{
            
            <ValveList valves={this.state.valves}/>
            <NewValveForm onValveSubmit={this.handleValveSubmit}/>
+           
            </Fragment>
        )
    }
