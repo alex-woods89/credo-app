@@ -13,9 +13,10 @@ class UserContainer extends Component{
      }
 
      componentDidMount(){
-        fetch('http://localhost:8080/users')
-        .then(res => res.json())
-        .then(data => this.setState({ users: data._embedded.users }))
+        return this.handleUserSubmit()
+        // fetch('http://localhost:8080/users')
+        // .then(res => res.json())
+        // .then(data => this.setState({ users: data._embedded.users }))
     }
 
      handleUserSubmit(){

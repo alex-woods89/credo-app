@@ -10,6 +10,7 @@ class PipeContainer extends Component {
            selectedPipe: null 
        }
        this.handlePipeSubmit = this.handlePipeSubmit.bind(this)
+       this.handlePipeSelected = this.handlePipeSelected.bind(this)
    }
 
    componentDidMount(){
@@ -23,14 +24,20 @@ class PipeContainer extends Component {
       .then(res => res.json())
       .then(data => this.setState({ pipes: data._embedded.pipes }))
   }
+  handlePipeSelected(index) {
+    const pipe = this.state.pipes[index]
+    fetch(`http://localhost:8080/pipes/${pipe.id}`)
+      .then(res => res.json())
+      .then(data => this.setState({ selectedPipe: data }))
+  }
 
 
     render(){
         return(
             <Fragment>
             <h4>Pipes</h4>
-            <PipeList pipes={this.state.pipes} />
-            <NewPipeForm onPipeSubmit = {this.handlePipeSubmit}/>
+            <PipeList pipes={this.state.pipes} onPipeSelected={this.handlePipeSelected}/>
+            <NewPipeForm onPipeSubmit = {this.handlePipeSubmit} />
             </Fragment>
 
         )

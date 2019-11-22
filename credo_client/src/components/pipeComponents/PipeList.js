@@ -1,13 +1,19 @@
 import React, {Component} from 'react'
 import PipeListItem from './PipeListItem'
+import EditPipeForm from './EditPipeForm'
 
 const PipeList = ({pipes}) => {
+
+    const pipe = pipes.map((pipe, index) => {
+        return pipe 
+    })
 
     const pipeNodes = pipes.map((pipe, index) => {
         return <PipeListItem key ={index} pipe={pipe}/>
     })
 
     return (
+        <div>
         <table align="center">
             <tbody>
                  <tr>
@@ -21,6 +27,9 @@ const PipeList = ({pipes}) => {
                  {pipeNodes}
             </tbody>
         </table>
+        <EditPipeForm pipe={pipe} />
+        </div>
+        
     )
   
 

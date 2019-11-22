@@ -1,6 +1,7 @@
 import React from 'react'
 
 const PipeListItem = (props) => {
+     
 
    
         function handleDelete(){
@@ -8,6 +9,10 @@ const PipeListItem = (props) => {
                 method: 'DELETE',
                 headers: {'Content-Type': 'application/json'}
             })
+        }
+
+        function handleShowFormChange(event){
+            this.setState({ showForm:true })
         }
   
 
@@ -18,7 +23,7 @@ return (
         <td>{props.pipe.lastInspectionDate}</td>
         <td>{props.pipe.location}</td>
         <td>{props.pipe.uniquePipeId}</td>
-        <td><button>Edit Pipe</button></td>
+        <td><button onClick={handleShowFormChange}>Edit Pipe</button></td>
         <td><button onClick={handleDelete}>Delete Pipe</button></td>
     </tr>
     </>
