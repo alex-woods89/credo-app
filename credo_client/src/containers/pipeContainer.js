@@ -26,7 +26,7 @@ class PipeContainer extends Component {
         return(
             <Fragment>
             <h4>Pipes</h4>
-            <PipeList pipes={this.state.pipes} onPipeSelected={this.handlePipeSelected}/>
+            <PipeList pipes={this.state.pipes} />
             <NewPipeForm onPipeSubmit = {this.handlePipeSubmit} />
             </Fragment>
 

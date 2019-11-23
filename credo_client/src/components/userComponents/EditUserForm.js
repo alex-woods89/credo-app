@@ -68,37 +68,48 @@ class EditUserForm extends Component {
            return(
             <Fragment>
             <form className="editForm" align="center" onSubmit={this.handleSubmit}>
+                <tr>
+                    <td>
                 <input 
                     type="text"
                     placeholder="insert first name"
                     value={this.state.firstName}
                     onChange={this.handleFirstNameChange}
                     />
-
+                    </td>
+                    
+                    <tr>
                     <input 
                     type="text"
                     placeholder="insert last name"
                     value={this.state.lastName}
                     onChange={this.handleLastNameChange}
                     />
+                    </tr>
 
+                    <td>
                     <input 
                     type="text"
                     placeholder="Enter a Role"
                     value={this.state.role}
                     onChange={this.handleRoleChange}
                     />
+                    </td>
 
+                    <td>
                     <input
                     type="number"
                     placeholder="Enter Employee Number"
                     value={this.state.employeeNumber}
                     onChange={this.handleEmployeeNumberChange}
                     />
+                    </td>
 
+                    <td>
                     <button type="submit">Edit User</button>
+                    </td>
 
-
+                    </tr>
             </form>
         
         </Fragment>

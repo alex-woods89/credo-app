@@ -15,7 +15,6 @@ const UserList = (props) => {
                  <th>User Last Name </th>
                  <th>User Role</th>
                  <th>Employee Number</th>
-                 <th>Edit User</th>
                  <th>Delete User</th>
              </tr>
              {userNodes}

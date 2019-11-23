@@ -74,26 +74,32 @@ class EditPipeForm extends Component {
            
            
             <form onSubmit={this.handleSubmit}>
+                <tr>
+                    <td>
                 <input 
                 type="text"
                 placeholder="insert pipe name"
                 value={this.state.name}
                 onChange={this.handlePipeNameChange}
                 />
-
+                </td>
+                <td>
                 <input
                 type="date"
                 placeholder="Choose a date"
                 value={this.state.lastInspectionDate}
                 onChange={this.handleLastInspectionDateChange}
                 />
-
+                </td>
+                <td>
                 <input 
                 type="text"
                 placeholder="Enter a Location"
                 value={this.state.location}
                 onChange={this.handleLocationChange}
                 />
+                </td>
+                <td>
 
                 <input
                 type="number"
@@ -101,10 +107,13 @@ class EditPipeForm extends Component {
                 value={this.state.uniquePipeId}
                 onChange={this.handleUniquePipeIdChange}
                 />
+                </td>
+                <td>
 
                 <button type="submit">Edit Pipe</button>
+                </td>
 
-
+                </tr>
             </form>
        
         
